@@ -4,6 +4,8 @@ import { Hero } from './components/sections/Hero'
 import { Benefits } from './components/sections/Benefits'
 import { About } from './components/sections/About'
 import { Organizers } from './components/sections/Organizers'
+import { Audience } from './components/sections/Audience'
+import { EventInfo } from './components/sections/EventInfo'
 
 /**
  * Fase 1: fundação + Hero.
@@ -20,6 +22,8 @@ export default function App() {
         <Benefits />
         <About />
         <Organizers />
+        <Audience />
+        <EventInfo />
       </main>
       <Footer />
     </>
