@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+/* Fonte Inter Variable self-hosted (sem Google Fonts via rede) */
+@import '@fontsource-variable/inter';
+
+/*
+ * Tokens da marca Monvatti (config CSS-first do Tailwind v4).
+ * Cada cor vira utilitário nomeado: bg-ink, text-paper, text-risd, border-platinum, etc.
+ */
+@theme {
+  /* Azuis da marca */
+  --color-chrysler: #001ad8; /* azul escuro — hovers, fundos profundos */
+  --color-risd: #3145ff; /* azul vibrante — DESTAQUE, glow, acentos, links */
+
+  /* Superfícies e fundo */
+  --color-gunmetal: #2b333b; /* superfícies / cards / separadores */
+  --color-ink: #050608; /* fundo da página — quase preto azulado */
+
+  /* Claros */
+  --color-platinum: #dfdcdb; /* bordas claras */
+  --color-paper: #f5f5f4; /* texto principal claro */
+
+  /* Tons de texto auxiliares */
+  --color-secondary: #a9aeb8;
+  --color-muted: #8a8f98;
+  --color-faint: #6b7280;
+
+  /* WhatsApp — CTA principal */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-ink: #04331a;
+
+  /* Tipografia */
+  --font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+}
+
+/* Dark por padrão: fundo ink, texto paper */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Respeita usuários que preferem menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/*
+ * Anel pulsante do CTA do WhatsAppButton — suave e discreto.
+ * Desativado sob prefers-reduced-motion.
+ */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-ring {
+    animation: none;
+  }
+}
