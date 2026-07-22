@@ -1,6 +1,7 @@
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
+import { Benefits } from './components/sections/Benefits'
 
 /**
  * Fase 1: fundação + Hero.
@@ -13,8 +14,8 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        {/* Âncora reservada para a primeira seção da Fase 2 (scroll do "Saiba mais"). */}
-        <div id="saiba-mais" />
+        {/* Primeira seção da Fase 2 — alvo do scroll do "Saiba mais" do Hero. */}
+        <Benefits />
       </main>
       <Footer />
     </>
