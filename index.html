@@ -1,91 +1,110 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1538885704370078');
-    fbq('track', 'PageView');
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+      }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1538885704370078');
+      fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1538885704370078&ev=PageView&noscript=1"
-    /></noscript>
     <!-- End Meta Pixel Code -->
-
-    <meta property="og:title" content="Tray Experience">
-    <meta property="og:description" content="Evento voltado para lojistas.">
-    <meta property="og:image" content="https://monvatti.com.br/images/og-image-final.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://monvatti.com.br">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://monvatti.com.br/images/og-image-final.png">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#050608" />
 
-    <!-- Favicon derivado do ícone azul da Monvatti -->
+    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/images/monvatti-icon.webp" />
     <link rel="apple-touch-icon" href="/images/monvatti-icon.webp" />
 
-    <!-- SEO primário -->
+    <!-- SEO -->
     <title>Tray Experience | Monvatti + Tray — Evento de e-commerce em Sombrio-SC</title>
+
     <meta
       name="description"
       content="Evento presencial e gratuito de e-commerce, dia 15 de agosto, em Sombrio-SC, realizado pela Monvatti em parceria com a Tray. Networking, conteúdo e estratégias práticas para quem vende online."
     />
+
     <meta
       name="keywords"
       content="e-commerce, evento, Tray, Monvatti, Sombrio, marketplace, lojistas, Santa Catarina"
     />
+
     <meta name="author" content="Monvatti" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://trayexperience.monvatti.com/" />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://monvatti.com.br/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tray Experience" />
     <meta property="og:locale" content="pt_BR" />
+
     <meta
       property="og:title"
       content="Tray Experience | Monvatti + Tray — Evento de e-commerce em Sombrio-SC"
     />
+
     <meta
       property="og:description"
       content="Evento presencial e gratuito de e-commerce, dia 15 de agosto, em Sombrio-SC. Estratégia, escala e networking em um só dia."
     />
-    <meta property="og:image" content="/images/tray-experience-logo.webp" />
-    <meta property="og:image:alt" content="Logo do evento Tray Experience" />
-    <meta property="og:url" content="https://trayexperience.monvatti.com/" />
 
-    <!-- Twitter Card -->
+    <meta
+      property="og:url"
+      content="https://monvatti.com.br/"
+    />
+
+    <meta
+      property="og:image"
+      content="https://monvatti.com.br/images/og-image-final.png"
+    />
+
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Tray Experience - Evento Monvatti + Tray"
+    />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
       content="Tray Experience | Monvatti + Tray — Evento de e-commerce em Sombrio-SC"
     />
+
     <meta
       name="twitter:description"
       content="Evento presencial e gratuito de e-commerce, dia 15 de agosto, em Sombrio-SC. Estratégia, escala e networking em um só dia."
     />
-    <meta name="twitter:image" content="/images/tray-experience-logo.webp" />
 
-    <!-- Preload de recursos críticos do hero -->
+    <meta
+      name="twitter:image"
+      content="https://monvatti.com.br/images/og-image-final.png"
+    />
+
+    <!-- Preload -->
     <link rel="preload" as="image" href="/images/monvatti-logo.webp" />
     <link rel="preload" as="image" href="/images/tray-logo-white.webp" />
 
-    <!-- JSON-LD Schema.org — Event -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,7 +114,7 @@
         "startDate": "2026-08-15",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
-        "image": "https://trayexperience.monvatti.com/images/tray-experience-logo.webp",
+        "image": "https://monvatti.com.br/images/og-image-final.png",
         "location": {
           "@type": "Place",
           "name": "Sombrio Tênis Clube",
@@ -122,13 +141,26 @@
           "price": "0",
           "priceCurrency": "BRL",
           "availability": "https://schema.org/InStock",
-          "url": "https://trayexperience.monvatti.com/"
+          "url": "https://monvatti.com.br/"
         }
       }
     </script>
   </head>
+
   <body>
+    <!-- Meta Pixel para usuários sem JavaScript -->
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1538885704370078&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
