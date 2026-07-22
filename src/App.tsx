@@ -6,6 +6,8 @@ import { About } from './components/sections/About'
 import { Organizers } from './components/sections/Organizers'
 import { Audience } from './components/sections/Audience'
 import { EventInfo } from './components/sections/EventInfo'
+import { WhatsAppGroup } from './components/sections/WhatsAppGroup'
+import { FinalCta } from './components/sections/FinalCta'
 
 /**
  * Fase 1: fundação + Hero.
@@ -24,6 +26,8 @@ export default function App() {
         <Organizers />
         <Audience />
         <EventInfo />
+        <WhatsAppGroup />
+        <FinalCta />
       </main>
       <Footer />
     </>
