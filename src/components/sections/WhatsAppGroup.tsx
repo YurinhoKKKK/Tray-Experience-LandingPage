@@ -3,6 +3,7 @@ import { Check } from 'lucide-react'
 import { Container } from '../ui/Container'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
 import { groupPerks } from '../../data/groupPerks'
+import { whatsappGroupCopy } from '../../data/whatsappGroup'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
 export function WhatsAppGroup() {
@@ -36,25 +37,23 @@ export function WhatsAppGroup() {
             variants={item}
             className="text-xs font-medium uppercase tracking-[0.16em] text-[#4ade80]"
           >
-            Entre antes que esgote
+            {whatsappGroupCopy.eyebrow}
           </motion.p>
 
           <motion.h2
             variants={item}
             className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
           >
-            As vagas são limitadas. E é no{' '}
-            <span className="text-whatsapp">grupo</span> que elas acabam.
+            {whatsappGroupCopy.titleLead}{' '}
+            <span className="text-whatsapp">{whatsappGroupCopy.titleHighlight}</span>{' '}
+            {whatsappGroupCopy.titleTail}
           </motion.h2>
 
           <motion.p
             variants={item}
             className="mx-auto mt-5 max-w-[620px] text-sm leading-[1.7] text-secondary"
           >
-            O Tray Experience tem lugares contados pelo espaço do Sombrio Tênis
-            Clube. Todo o cronograma, os avisos e as confirmações acontecem no
-            grupo oficial. Quem não está no grupo é o primeiro a ficar de fora.
-            Entrar é gratuito e leva dez segundos.
+            {whatsappGroupCopy.paragraph}
           </motion.p>
 
           {/* Chips leves do que sai no grupo, com check verde */}

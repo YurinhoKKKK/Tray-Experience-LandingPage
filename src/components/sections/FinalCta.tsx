@@ -1,6 +1,7 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { Container } from '../ui/Container'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { finalCtaCopy } from '../../data/finalCta'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
 /** Glow azul da marca por dentro do card, mais presente que nas outras seções. */
@@ -26,16 +27,16 @@ export function FinalCta() {
             variants={item}
             className="mx-auto max-w-[15ch] text-[30px] font-medium leading-[1.1] tracking-tight text-paper sm:text-[40px]"
           >
-            Não fique de fora do maior encontro de{' '}
-            <span className="text-risd">e-commerce</span> da região.
+            {finalCtaCopy.titleLead}{' '}
+            <span className="text-risd">{finalCtaCopy.titleHighlight}</span>{' '}
+            {finalCtaCopy.titleTail}
           </motion.h2>
 
           <motion.p
             variants={item}
             className="mx-auto mt-5 max-w-[460px] text-[15px] leading-relaxed text-secondary"
           >
-            Vagas limitadas, evento gratuito, em Sombrio. As vagas se organizam
-            pelo grupo oficial. Entre agora e garanta a sua presença.
+            {finalCtaCopy.subheadline}
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex justify-center">
@@ -43,7 +44,7 @@ export function FinalCta() {
           </motion.div>
 
           <motion.p variants={item} className="mt-5 text-xs text-muted">
-            Gratuito · Vagas limitadas · Entrada exclusiva pelo grupo
+            {finalCtaCopy.reinforcement}
           </motion.p>
         </motion.div>
       </Container>

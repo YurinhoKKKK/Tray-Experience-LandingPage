@@ -4,6 +4,7 @@ import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
 import { event } from '../../data/event'
+import { heroCopy } from '../../data/hero'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
 /** Ícones lucide na mesma ordem dos indicadores em event.indicadores. */
@@ -84,8 +85,8 @@ export function Hero() {
             variants={item}
             className="mt-5 text-[32px] font-medium leading-[1.08] tracking-tight text-paper sm:text-4xl md:text-[38px]"
           >
-            Estratégia, escala e networking em{' '}
-            <span className="text-risd">um só dia</span>.
+            {heroCopy.headlineLead}{' '}
+            <span className="text-risd">{heroCopy.headlineHighlight}</span>.
           </motion.h1>
 
           {/* 4. Subheadline */}
@@ -93,10 +94,7 @@ export function Hero() {
             variants={item}
             className="mt-5 max-w-[470px] text-base leading-relaxed text-secondary"
           >
-            Um encontro presencial para quem vende online e quer crescer com
-            método. Conteúdo prático, especialistas e as novidades da Tray,
-            reunidos em Sombrio. As vagas são limitadas e tudo se organiza pelo
-            grupo oficial. Entre agora para garantir a sua.
+            {heroCopy.subheadline}
           </motion.p>
 
           {/* 5. CTAs */}
