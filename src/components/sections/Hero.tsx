@@ -94,8 +94,9 @@ export function Hero() {
             className="mt-5 max-w-[470px] text-base leading-relaxed text-secondary"
           >
             Um encontro presencial para quem vende online e quer crescer com
-            método. Conteúdo prático, especialistas e as novidades da Tray —
-            reunidos em Sombrio.
+            método. Conteúdo prático, especialistas e as novidades da Tray,
+            reunidos em Sombrio. As vagas são limitadas e tudo se organiza pelo
+            grupo oficial. Entre agora para garantir a sua.
           </motion.p>
 
           {/* 5. CTAs */}

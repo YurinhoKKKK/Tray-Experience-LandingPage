@@ -26,16 +26,16 @@ export function FinalCta() {
             variants={item}
             className="mx-auto max-w-[15ch] text-[30px] font-medium leading-[1.1] tracking-tight text-paper sm:text-[40px]"
           >
-            Sua vaga no Tray Experience começa{' '}
-            <span className="text-risd">aqui</span>.
+            Não fique de fora do maior encontro de{' '}
+            <span className="text-risd">e-commerce</span> da região.
           </motion.h2>
 
           <motion.p
             variants={item}
             className="mx-auto mt-5 max-w-[460px] text-[15px] leading-relaxed text-secondary"
           >
-            Evento gratuito, presencial, em Sombrio. Entre no grupo oficial e
-            garanta sua presença antes que as vagas se esgotem.
+            Vagas limitadas, evento gratuito, em Sombrio. As vagas se organizam
+            pelo grupo oficial. Entre agora e garanta a sua presença.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex justify-center">
@@ -43,7 +43,7 @@ export function FinalCta() {
           </motion.div>
 
           <motion.p variants={item} className="mt-5 text-xs text-muted">
-            Gratuito · Sem compromisso · Você pode sair quando quiser
+            Gratuito · Vagas limitadas · Entrada exclusiva pelo grupo
           </motion.p>
         </motion.div>
       </Container>

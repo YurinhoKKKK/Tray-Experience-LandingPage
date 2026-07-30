@@ -36,24 +36,25 @@ export function WhatsAppGroup() {
             variants={item}
             className="text-xs font-medium uppercase tracking-[0.16em] text-[#4ade80]"
           >
-            Grupo oficial
+            Entre antes que esgote
           </motion.p>
 
           <motion.h2
             variants={item}
             className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
           >
-            Tudo acontece primeiro no{' '}
-            <span className="text-whatsapp">grupo</span>.
+            As vagas são limitadas. E é no{' '}
+            <span className="text-whatsapp">grupo</span> que elas acabam.
           </motion.h2>
 
           <motion.p
             variants={item}
             className="mx-auto mt-5 max-w-[620px] text-sm leading-[1.7] text-secondary"
           >
-            É no grupo oficial que você recebe tudo em primeira mão: cronograma,
-            avisos, novidades, mudanças, lembretes e materiais. Entrar agora é a
-            forma de não perder nada e garantir sua presença.
+            O Tray Experience tem lugares contados pelo espaço do Sombrio Tênis
+            Clube. Todo o cronograma, os avisos e as confirmações acontecem no
+            grupo oficial. Quem não está no grupo é o primeiro a ficar de fora.
+            Entrar é gratuito e leva dez segundos.
           </motion.p>
 
           {/* Chips leves do que sai no grupo, com check verde */}
