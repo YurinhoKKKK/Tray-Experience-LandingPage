@@ -1,6 +1,7 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { MapPin, Users, Eye, Zap, type LucideIcon } from 'lucide-react'
 import { Container } from '../ui/Container'
+import { RevealHeading } from '../ui/RevealHeading'
 import { aboutHighlights } from '../../data/aboutHighlights'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -32,12 +33,14 @@ export function About() {
             Sobre o evento
           </motion.p>
 
-          <motion.h2
-            variants={item}
+          <RevealHeading
             className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
-          >
-            O que é o <span className="text-risd">Tray Experience</span>.
-          </motion.h2>
+            segments={[
+              { text: 'O que é o' },
+              { text: 'Tray Experience', className: 'text-risd' },
+              { text: '.' },
+            ]}
+          />
 
           <motion.p
             variants={item}

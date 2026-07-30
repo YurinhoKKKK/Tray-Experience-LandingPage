@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { Container } from '../ui/Container'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { RevealHeading } from '../ui/RevealHeading'
 import { event } from '../../data/event'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -59,9 +60,14 @@ export function EventInfo() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#8FA0FF]">
             Onde e quando
           </p>
-          <h2 className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]">
-            Informações do <span className="text-risd">evento</span>.
-          </h2>
+          <RevealHeading
+            className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
+            segments={[
+              { text: 'Informações do' },
+              { text: 'evento', className: 'text-risd' },
+              { text: '.' },
+            ]}
+          />
         </div>
 
         {/* Desktop: info à esquerda, mapa à direita. Mobile: empilhado. */}

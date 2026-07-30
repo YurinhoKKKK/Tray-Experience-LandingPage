@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import type { MouseEvent } from 'react'
 import { Container } from '../ui/Container'
+import { RevealHeading } from '../ui/RevealHeading'
 import { benefits } from '../../data/benefits'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -54,10 +55,14 @@ export function Benefits() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#8FA0FF]">
             Por que participar
           </p>
-          <h2 className="mt-3 text-[26px] font-medium leading-tight tracking-tight text-paper sm:text-3xl">
-            Um dia inteiro voltado ao seu{' '}
-            <span className="text-risd">crescimento</span>.
-          </h2>
+          <RevealHeading
+            className="mt-3 text-[26px] font-medium leading-tight tracking-tight text-paper sm:text-3xl"
+            segments={[
+              { text: 'Um dia inteiro voltado ao seu' },
+              { text: 'crescimento', className: 'text-risd' },
+              { text: '.' },
+            ]}
+          />
         </div>
 
         {/* Grade: 1 col (mobile) → 2 (md) → 3 (lg). Anima em stagger ao entrar na viewport. */}
@@ -74,7 +79,7 @@ export function Benefits() {
               <motion.li key={benefit.titulo} variants={item}>
                 <article
                   onMouseMove={handleSpotlight}
-                  className="spotlight-card group relative h-full rounded-[14px] border-[0.5px] border-[#1c2029] bg-[#0C0E14] p-[22px] transition-all duration-200 hover:border-[rgba(49,69,255,0.45)] hover:shadow-[0_0_0_1px_rgba(49,69,255,0.15),0_8px_30px_-12px_rgba(49,69,255,0.4)] motion-safe:hover:-translate-y-1"
+                  className="spotlight-card benefit-border group relative h-full rounded-[14px] border-[0.5px] border-[#1c2029] bg-[#0C0E14] p-[22px] transition-all duration-200 hover:border-[rgba(49,69,255,0.45)] hover:shadow-[0_0_0_1px_rgba(49,69,255,0.15),0_8px_30px_-12px_rgba(49,69,255,0.4)] motion-safe:hover:-translate-y-1"
                 >
                   {/* Conteúdo acima do overlay de spotlight (::before, z-0). */}
                   <div className="relative z-10">

@@ -21,26 +21,55 @@ export function Hero() {
       id="top"
       className="relative overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-28"
     >
-      {/* Glow radial azul no canto superior direito (risd → chrysler → transparente).
-          Camada dupla para um brilho "premium/Linear" com mais presença, mantido à
-          direita para não competir com o contraste do texto à esquerda. */}
+      {/* Aurora azul: 2-3 blobs (risd/chrysler) com movimento lento defasado,
+          atrás do conteúdo. Mantidos mais ao topo/direita e com um overlay
+          escuro à esquerda para não competir com o texto. */}
       <div
         aria-hidden="true"
-        className="animate-glow-slow pointer-events-none absolute -top-48 right-[-12%] -z-10 h-[620px] w-[620px] rounded-full blur-3xl"
-        style={{
-          background:
-            'radial-gradient(circle at center, rgba(49,69,255,0.42) 0%, rgba(0,26,216,0.22) 42%, rgba(5,6,8,0) 72%)',
-        }}
-      />
-      {/* Núcleo mais concentrado para dar profundidade ao brilho */}
-      <div
-        aria-hidden="true"
-        className="animate-glow pointer-events-none absolute -top-24 right-[2%] -z-10 h-[320px] w-[320px] rounded-full blur-2xl"
-        style={{
-          background:
-            'radial-gradient(circle at center, rgba(49,69,255,0.30) 0%, rgba(49,69,255,0) 70%)',
-        }}
-      />
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div
+          className="aurora-blob aurora-a"
+          style={{
+            top: '-12%',
+            right: '-6%',
+            width: 480,
+            height: 480,
+            background:
+              'radial-gradient(circle at center, rgba(49,69,255,0.6) 0%, rgba(49,69,255,0) 70%)',
+          }}
+        />
+        <div
+          className="aurora-blob aurora-b"
+          style={{
+            top: '-26%',
+            left: '22%',
+            width: 440,
+            height: 440,
+            background:
+              'radial-gradient(circle at center, rgba(0,26,216,0.55) 0%, rgba(0,26,216,0) 70%)',
+          }}
+        />
+        <div
+          className="aurora-blob aurora-c"
+          style={{
+            top: '4%',
+            right: '14%',
+            width: 360,
+            height: 360,
+            background:
+              'radial-gradient(circle at center, rgba(49,69,255,0.5) 0%, rgba(49,69,255,0) 70%)',
+          }}
+        />
+        {/* Overlay para preservar a legibilidade do texto à esquerda */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(5,6,8,0.6) 0%, rgba(5,6,8,0.14) 45%, rgba(5,6,8,0) 72%)',
+          }}
+        />
+      </div>
 
       <Container>
         <motion.div

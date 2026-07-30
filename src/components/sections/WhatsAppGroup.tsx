@@ -2,6 +2,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { Container } from '../ui/Container'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { RevealHeading } from '../ui/RevealHeading'
 import { groupPerks } from '../../data/groupPerks'
 import { whatsappGroupCopy } from '../../data/whatsappGroup'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
@@ -40,14 +41,17 @@ export function WhatsAppGroup() {
             {whatsappGroupCopy.eyebrow}
           </motion.p>
 
-          <motion.h2
-            variants={item}
+          <RevealHeading
             className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
-          >
-            {whatsappGroupCopy.titleLead}{' '}
-            <span className="text-whatsapp">{whatsappGroupCopy.titleHighlight}</span>{' '}
-            {whatsappGroupCopy.titleTail}
-          </motion.h2>
+            segments={[
+              { text: whatsappGroupCopy.titleLead },
+              {
+                text: whatsappGroupCopy.titleHighlight,
+                className: 'text-whatsapp',
+              },
+              { text: whatsappGroupCopy.titleTail },
+            ]}
+          />
 
           <motion.p
             variants={item}

@@ -2,6 +2,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { Container } from '../ui/Container'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
 import { Countdown } from '../ui/Countdown'
+import { RevealHeading } from '../ui/RevealHeading'
 import { finalCtaCopy } from '../../data/finalCta'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -33,14 +34,14 @@ export function FinalCta() {
             style={{ background: ctaGlow, transformOrigin: '50% 0%' }}
           />
 
-          <motion.h2
-            variants={item}
+          <RevealHeading
             className="mx-auto max-w-[15ch] text-[30px] font-medium leading-[1.1] tracking-tight text-paper sm:text-[40px]"
-          >
-            {finalCtaCopy.titleLead}{' '}
-            <span className="text-risd">{finalCtaCopy.titleHighlight}</span>{' '}
-            {finalCtaCopy.titleTail}
-          </motion.h2>
+            segments={[
+              { text: finalCtaCopy.titleLead },
+              { text: finalCtaCopy.titleHighlight, className: 'text-risd' },
+              { text: finalCtaCopy.titleTail },
+            ]}
+          />
 
           {/* Timer regressivo completo — lê event.dataISO */}
           <motion.div variants={item} className="mt-8">

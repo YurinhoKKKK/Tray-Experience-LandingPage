@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Container } from '../ui/Container'
+import { RevealHeading } from '../ui/RevealHeading'
 import { audience } from '../../data/audience'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -34,9 +35,14 @@ export function Audience() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#8FA0FF]">
             Para quem é
           </p>
-          <h2 className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]">
-            Feito para quem quer <span className="text-risd">crescer</span>.
-          </h2>
+          <RevealHeading
+            className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
+            segments={[
+              { text: 'Feito para quem quer' },
+              { text: 'crescer', className: 'text-risd' },
+              { text: '.' },
+            ]}
+          />
           <p className="mt-4 text-sm text-secondary">
             Se você se identifica com algum destes, o Tray Experience é pra você.
           </p>

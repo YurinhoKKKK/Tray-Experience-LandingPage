@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { Container } from '../ui/Container'
+import { RevealHeading } from '../ui/RevealHeading'
 import { organizers } from '../../data/organizers'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
 
@@ -19,9 +20,14 @@ export function Organizers() {
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#8FA0FF]">
             Quem faz acontecer
           </p>
-          <h2 className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]">
-            Os <span className="text-risd">organizadores</span>.
-          </h2>
+          <RevealHeading
+            className="mt-3 text-[24px] font-medium leading-tight tracking-tight text-paper sm:text-[29px]"
+            segments={[
+              { text: 'Os' },
+              { text: 'organizadores', className: 'text-risd' },
+              { text: '.' },
+            ]}
+          />
         </div>
 
         {/* Dois cards simétricos: 1 col (mobile) → 2 col iguais (md+), mesma altura. */}

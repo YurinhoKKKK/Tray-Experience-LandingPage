@@ -41,6 +41,14 @@
 
   body {
     background-color: var(--color-ink);
+    /* Malha tecnológica sutil (dot grid) atrás de toda a página. Estática —
+       zero custo de animação. Pontos claríssimos (0.04) para não atrapalhar
+       leitura; os cards têm fundo sólido e cobrem os pontos onde há texto. */
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+    background-size: 26px 26px;
     color: var(--color-paper);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -170,5 +178,140 @@
 
   .spotlight-card:hover::before {
     opacity: 1;
+  }
+}
+
+/*
+ * Aurora do Hero — 2-3 blobs radiais (risd/chrysler) com blur estático grande e
+ * movimento lento defasado (só transform, nunca o blur). translateZ(0) promove
+ * a camada para o compositor. Para sob prefers-reduced-motion.
+ */
+@keyframes aurora-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 5%, 0) scale(1.15);
+  }
+}
+@keyframes aurora-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-8%, 7%, 0) scale(0.94);
+  }
+}
+@keyframes aurora-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5%, -6%, 0) scale(1.2);
+  }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(55px);
+  will-change: transform;
+  transform: translateZ(0);
+}
+.aurora-a {
+  animation: aurora-a 11s ease-in-out infinite;
+}
+.aurora-b {
+  animation: aurora-b 13s ease-in-out infinite;
+}
+.aurora-c {
+  animation: aurora-c 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-a,
+  .aurora-b,
+  .aurora-c {
+    animation: none;
+  }
+}
+
+/* Alívio de performance no mobile: blur pesado + animação contínua custam caro
+   em GPU de celular e atrasam o LCP do Hero. No mobile a aurora fica estática,
+   com blur menor e 2 blobs (o efeito premium se mantém, sem o custo). */
+@media (max-width: 640px) {
+  .aurora-blob {
+    filter: blur(40px);
+  }
+  .aurora-c {
+    display: none;
+  }
+  .aurora-a,
+  .aurora-b {
+    animation: none;
+  }
+}
+
+/*
+ * Borda de luz correndo — SÓ nos cards de Benefícios, SÓ no hover, SÓ desktop.
+ * Um conic-gradient girando (via --border-angle) mascarado para aparecer apenas
+ * na moldura de 1px. Fica pausado por padrão (não anima 6 cards à toa) e só roda
+ * no hover. Sob prefers-reduced-motion mostra a borda azul estática no hover.
+ */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-angle-rotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefit-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--border-angle),
+      transparent 0%,
+      rgba(49, 69, 255, 0.9) 12%,
+      rgba(0, 26, 216, 0.7) 25%,
+      transparent 42%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    animation: border-angle-rotate 3s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .benefit-border:hover::after {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .benefit-border::after {
+      animation: none;
+    }
   }
 }
