@@ -4,6 +4,7 @@ import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
 import { VagasBar } from '../ui/VagasBar'
+import { Countdown } from '../ui/Countdown'
 import { event } from '../../data/event'
 import { heroCopy } from '../../data/hero'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
@@ -25,7 +26,7 @@ export function Hero() {
           direita para não competir com o contraste do texto à esquerda. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-48 right-[-12%] -z-10 h-[620px] w-[620px] rounded-full blur-3xl"
+        className="animate-glow-slow pointer-events-none absolute -top-48 right-[-12%] -z-10 h-[620px] w-[620px] rounded-full blur-3xl"
         style={{
           background:
             'radial-gradient(circle at center, rgba(49,69,255,0.42) 0%, rgba(0,26,216,0.22) 42%, rgba(5,6,8,0) 72%)',
@@ -34,7 +35,7 @@ export function Hero() {
       {/* Núcleo mais concentrado para dar profundidade ao brilho */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 right-[2%] -z-10 h-[320px] w-[320px] rounded-full blur-2xl"
+        className="animate-glow pointer-events-none absolute -top-24 right-[2%] -z-10 h-[320px] w-[320px] rounded-full blur-2xl"
         style={{
           background:
             'radial-gradient(circle at center, rgba(49,69,255,0.30) 0%, rgba(49,69,255,0) 70%)',
@@ -133,6 +134,11 @@ export function Hero() {
               )
             })}
           </motion.ul>
+
+          {/* 8. Timer regressivo compacto — lê event.dataISO */}
+          <motion.div variants={item} className="mt-6">
+            <Countdown variant="compact" />
+          </motion.div>
         </motion.div>
       </Container>
     </section>

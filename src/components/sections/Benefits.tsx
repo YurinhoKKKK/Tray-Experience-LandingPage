@@ -12,9 +12,21 @@ import {
   LineChart,
   type LucideIcon,
 } from 'lucide-react'
+import type { MouseEvent } from 'react'
 import { Container } from '../ui/Container'
 import { benefits } from '../../data/benefits'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
+
+/**
+ * Atualiza as coords do spotlight (--mx/--my) conforme o cursor dentro do card.
+ * O overlay (::before) só é renderizado em telas com ponteiro fino via
+ * @media (hover: hover) and (pointer: fine) — em touch isto não tem efeito.
+ */
+function handleSpotlight(e: MouseEvent<HTMLElement>) {
+  const rect = e.currentTarget.getBoundingClientRect()
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+  e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
 
 /** Mapa nome-do-ícone → componente lucide (os nomes vêm de data/benefits.ts). */
 const icons: Record<string, LucideIcon> = {
@@ -60,23 +72,29 @@ export function Benefits() {
             const Icon = icons[benefit.icon] ?? Users
             return (
               <motion.li key={benefit.titulo} variants={item}>
-                <article className="group h-full rounded-[14px] border-[0.5px] border-[#1c2029] bg-[#0C0E14] p-[22px] transition-all duration-200 hover:border-[rgba(49,69,255,0.45)] hover:shadow-[0_0_0_1px_rgba(49,69,255,0.15),0_8px_30px_-12px_rgba(49,69,255,0.4)] motion-safe:hover:-translate-y-1">
-                  {/* Ícone em quadrado com fundo risd translúcido */}
-                  <span className="flex size-[42px] items-center justify-center rounded-[10px] bg-risd/[0.12]">
-                    <Icon
-                      className="text-[#5B74FF]"
-                      size={21}
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    />
-                  </span>
+                <article
+                  onMouseMove={handleSpotlight}
+                  className="spotlight-card group relative h-full rounded-[14px] border-[0.5px] border-[#1c2029] bg-[#0C0E14] p-[22px] transition-all duration-200 hover:border-[rgba(49,69,255,0.45)] hover:shadow-[0_0_0_1px_rgba(49,69,255,0.15),0_8px_30px_-12px_rgba(49,69,255,0.4)] motion-safe:hover:-translate-y-1"
+                >
+                  {/* Conteúdo acima do overlay de spotlight (::before, z-0). */}
+                  <div className="relative z-10">
+                    {/* Ícone em quadrado com fundo risd translúcido */}
+                    <span className="flex size-[42px] items-center justify-center rounded-[10px] bg-risd/[0.12]">
+                      <Icon
+                        className="text-[#5B74FF]"
+                        size={21}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    </span>
 
-                  <h3 className="mt-4 text-base font-medium text-paper">
-                    {benefit.titulo}
-                  </h3>
-                  <p className="mt-1.5 text-[13px] leading-[1.55] text-secondary">
-                    {benefit.descricao}
-                  </p>
+                    <h3 className="mt-4 text-base font-medium text-paper">
+                      {benefit.titulo}
+                    </h3>
+                    <p className="mt-1.5 text-[13px] leading-[1.55] text-secondary">
+                      {benefit.descricao}
+                    </p>
+                  </div>
                 </article>
               </motion.li>
             )
