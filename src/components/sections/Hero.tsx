@@ -3,6 +3,7 @@ import { Gift, Flame, CalendarDays, MapPin, ArrowDown } from 'lucide-react'
 import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { VagasBar } from '../ui/VagasBar'
 import { event } from '../../data/event'
 import { heroCopy } from '../../data/hero'
 import { fadeInUp, staggerContainer } from '../../lib/motion'
@@ -109,7 +110,12 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          {/* 6. Faixa de indicadores */}
+          {/* 6. Barra de vagas — lê event.vagasOcupadasPct */}
+          <motion.div variants={item} className="mt-8">
+            <VagasBar />
+          </motion.div>
+
+          {/* 7. Faixa de indicadores */}
           <motion.ul
             variants={item}
             className="mt-12 flex flex-wrap gap-x-6 gap-y-3"
