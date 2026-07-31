@@ -123,9 +123,12 @@ export function Hero() {
           {/* 4. Subheadline */}
           <motion.p
             variants={item}
-            className="mt-5 max-w-[470px] text-base leading-relaxed text-secondary"
+            className="mt-5 max-w-[470px] text-[15px] leading-relaxed text-secondary sm:text-base"
           >
-            {heroCopy.subheadline}
+            {heroCopy.subheadline}{' '}
+            <span className="font-semibold text-paper">
+              {heroCopy.subheadlineEmphasis}
+            </span>
           </motion.p>
 
           {/* 5. CTAs */}
