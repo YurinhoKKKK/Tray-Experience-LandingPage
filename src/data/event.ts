@@ -21,7 +21,7 @@ export const event = {
    * conforme as inscrições — edite APENAS este número. O componente VagasBar
    * lê este valor e faz o clamp de segurança (0 a 100).
    */
-  vagasOcupadasPct: 83,
+  vagasOcupadasPct: 85,
   indicadores: [
     'Evento gratuito',
     'Vagas limitadas',
